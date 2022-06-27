@@ -19,4 +19,4 @@ use App\Http\Controllers\TodoController;
 //    return $request->user();
 //});
 
-Route::post('/todo', [TodoController::class, 'store']);
+Route::post('/todos', [TodoController::class, 'store']);

@@ -8,9 +8,10 @@ use App\Models\Todo;
 class TodoController extends Controller
 {
     public function store(Request $request){
+
         $data = $request->validate([
             'title' => 'required|string|max:255',
-            'priority' => 'nullable|integer"min:1|max:3',
+            'priority' => 'nullable|integer|min:1|max:3',
             'done' => 'boolean',
         ]);
 
@@ -21,7 +22,7 @@ class TodoController extends Controller
             'status' =>true,
             'message' => 'Todo created.',
             'data' => $todo,
-        ],201);
+        ]);
 
     }
 }
