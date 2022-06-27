@@ -37,4 +37,16 @@ class TodoController extends Controller
             'data' => $gather,
         ],201);
     }
+
+//    Getting data on a single _todo_list
+    public function gather_single(Request $request, $id){
+        $gather_single = Todo::find($id);
+
+//        Returning JSON once more
+        return response()->json([
+            'status' =>true,
+            'message' => 'Here you go.',
+            'data' => $gather_single,
+        ],201);
+    }
 }
