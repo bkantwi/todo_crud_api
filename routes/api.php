@@ -22,3 +22,4 @@ use App\Http\Controllers\TodoController;
 Route::post('/todos', [TodoController::class, 'store']);
 Route::get('/gather', [TodoController::class, 'posts']);
 Route::get('/gather/{id}', [TodoController::class, 'gather_single']);
+Route::patch('/update/{id}', [TodoController::class, 'update']);

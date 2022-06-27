@@ -49,4 +49,37 @@ class TodoController extends Controller
             'data' => $gather_single,
         ],201);
     }
+
+    //    Updating todo_list
+    public function update(Request $request, $id){
+
+        $data = $request->validate([
+            'title' => 'nullable|string|max:255',
+            'priority' => 'nullable|integer|min:1|max:3',
+            'done' => 'boolean',
+        ]);
+
+//        Find to do first before update.
+        $update = Todo::find($id);
+
+//        Update to do if record found else throw an error
+        if($update){
+            $update->update($data);
+
+            return response()->json([
+                'status' =>true,
+                'message' => 'Todo Update.',
+                'data' => $update,
+            ]);
+
+        }else{
+            return response()->json([
+                'status' =>false,
+                'message' => 'Todo Not Found.',
+                'data' => null,
+            ],404 );
+        }
+
+    }
+
 }
