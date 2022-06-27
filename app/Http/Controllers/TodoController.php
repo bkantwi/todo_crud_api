@@ -7,6 +7,7 @@ use App\Models\Todo;
 
 class TodoController extends Controller
 {
+//    Creating a Todo_list
     public function store(Request $request){
 
         $data = $request->validate([
@@ -22,7 +23,18 @@ class TodoController extends Controller
             'status' =>true,
             'message' => 'Todo created.',
             'data' => $todo,
-        ]);
+        ],201);
+    }
 
+//    Getting all todo_data
+    public function posts(Request $request){
+        $gather = Todo::all();
+
+//        Returning JSON once more
+        return response()->json([
+            'status' =>true,
+            'message' => 'Here you go.',
+            'data' => $gather,
+        ],201);
     }
 }

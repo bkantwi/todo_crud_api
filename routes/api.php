@@ -20,3 +20,4 @@ use App\Http\Controllers\TodoController;
 //});
 
 Route::post('/todos', [TodoController::class, 'store']);
+Route::get('/gather', [TodoController::class, 'posts']);
