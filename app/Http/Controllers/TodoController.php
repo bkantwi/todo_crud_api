@@ -68,7 +68,7 @@ class TodoController extends Controller
 
             return response()->json([
                 'status' =>true,
-                'message' => 'Todo Update.',
+                'message' => 'Todo Updated.',
                 'data' => $update,
             ]);
 
