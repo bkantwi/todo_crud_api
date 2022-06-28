@@ -23,3 +23,4 @@ Route::post('/create_todo', [TodoController::class, 'store']);
 Route::get('/gather', [TodoController::class, 'posts']);
 Route::get('/gather/{id}', [TodoController::class, 'gather_single']);
 Route::patch('/update/{id}', [TodoController::class, 'update']);
+Route::delete('/delete/{id}', [TodoController::class, 'delete']);

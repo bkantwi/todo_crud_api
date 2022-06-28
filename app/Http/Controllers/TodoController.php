@@ -71,7 +71,30 @@ class TodoController extends Controller
                 'message' => 'Todo Updated.',
                 'data' => $update,
             ]);
+        }else{
+            return response()->json([
+                'status' =>false,
+                'message' => 'Todo Not Found.',
+                'data' => null,
+            ],404 );
+        }
+    }
 
+    //    Deleting todo_list
+    public function delete(Request $request, $id){
+
+//        Find to do first before update.
+        $update = Todo::find($id);
+
+//        Update to do if record found else throw an error
+        if($update){
+            $update->delete();
+
+            return response()->json([
+                'status' =>true,
+                'message' => 'Todo Deletedd.',
+                'data' => null,
+            ]);
         }else{
             return response()->json([
                 'status' =>false,
